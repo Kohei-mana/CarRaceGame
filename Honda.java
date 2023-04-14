@@ -1,6 +1,6 @@
 public class Honda implements Car {
     int capacity = 6;
-    int price = 2000000;
+    int price = 5000000;
     int acceleration = 4;
 
     public void stepAccel(){

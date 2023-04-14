@@ -1,6 +1,6 @@
 public class Ferrari implements Car {
     int capacity = 2;
-    int price = 12000000;
+    int price = 10000000;
     double acceleration = 8;
     //Q2 車高をリフトアップしているかどうかの真偽
     boolean lift = false;
