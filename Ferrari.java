@@ -1,7 +1,8 @@
 public class Ferrari implements Car {
     int capacity = 2;
     int price = 10000000;
-    double acceleration = 8;
+    double acceleration = 8.0;
+    int peopleNum = 0;
     //Q2 車高をリフトアップしているかどうかの真偽
     boolean lift = false;
     //Q2 車高のデフォルトの値
@@ -12,6 +13,12 @@ public class Ferrari implements Car {
     }
     public void stepBrake(){
         System.out.println("ブレーキを踏みました。");
+    }
+    public void ridePerson(){
+        if(this.peopleNum<this.capacity){
+            this.acceleration *= (1 - 0.05);
+            this.peopleNum += 1;
+        }
     }
 
     //Q2　リフトアップメソッド→リフトアップすると20%加速が低下する。リフトアップしている状態から呼び出しても何も起こらない。

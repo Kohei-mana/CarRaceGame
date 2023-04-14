@@ -1,4 +1,3 @@
-
 public class Main {
     public static void main(String[] args) {
         //各自動車のインスタンス化
@@ -47,27 +46,50 @@ public class Main {
         //--------------------------------------------------------------------------------------------        
         
         // Q3 各自動車をランダムに生成するメソッド、ランダムに生成された自動車の合計・平均金額を求めるメソッドの確認
-        System.out.println(calc.carRandomCnt);
-        System.out.println(calc.priceList);
-        calc.makeHondaRondom();
-        System.out.println(calc.carRandomCnt);
-        System.out.println(calc.priceList);
-        System.out.println(calc.priceList.size());
-        calc.makeNissanRondom();
-        System.out.println(calc.carRandomCnt);
-        System.out.println(calc.priceList);
-        System.out.println(calc.priceList.size());
-        calc.makeFerrariRondom();
-        System.out.println(calc.carRandomCnt);
-        System.out.println(calc.priceList);
-        System.out.println(calc.priceList.size());
-        System.out.println("合計関数");
-        System.out.println(calc.sumPrice);
-        calc.calcSumPrice();
-        System.out.println(calc.sumPrice);
-        System.out.println("平均関数");
-        calc.calcAvgPrice();
-        System.out.println(calc.avgPrice);
+        // System.out.println(calc.carRandomCnt);
+        // System.out.println(calc.priceList);
+        // calc.makeHondaRondom();
+        // System.out.println(calc.carRandomCnt);
+        // System.out.println(calc.priceList);
+        // System.out.println(calc.priceList.size());
+        // calc.makeNissanRondom();
+        // System.out.println(calc.carRandomCnt);
+        // System.out.println(calc.priceList);
+        // System.out.println(calc.priceList.size());
+        // calc.makeFerrariRondom();
+        // System.out.println(calc.carRandomCnt);
+        // System.out.println(calc.priceList);
+        // System.out.println(calc.priceList.size());
+        // System.out.println("合計関数");
+        // System.out.println(calc.sumPrice);
+        // calc.calcSumPrice();
+        // System.out.println(calc.sumPrice);
+        // System.out.println("平均関数");
+        // calc.calcAvgPrice();
+        // System.out.println(calc.avgPrice);
 
+        //Q4 ridePersonメソッド(Ferrariクラスでの確認)
+        System.out.println("人をひとりも乗せていない場合の乗客人数と加速値");
+        System.out.println(f.peopleNum);
+        System.out.println(f.acceleration);
+        f.ridePerson();
+        System.out.println("人を１人乗せた場合と2人乗せた場合の乗客人数と加速値");
+        System.out.println(f.peopleNum);
+        System.out.println(f.acceleration);
+        f.ridePerson();
+        System.out.println(f.peopleNum);
+        System.out.println(f.acceleration);
+        System.out.println("乗客人数が定員数を超えた後の乗客数と加速値");
+        f.ridePerson();
+        System.out.println(f.peopleNum);
+        System.out.println(f.acceleration);
+        f.ridePerson();
+        System.out.println(f.peopleNum);
+        System .out.println(f.acceleration);
+        //Q4　Nissanクラスの生産時欠陥の実装を確認
+        System.out.println("------------------------------------------------");
+        System.out.println("Nissanの加速値");
+        System.out.println(n.acceleration);
+        
     }
 }
