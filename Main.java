@@ -5,30 +5,19 @@ public class Main {
         Nissan n = new Nissan();
         Ferrari f = new Ferrari();
         Calc calc = new Calc();
+        Race race = new Race();
 
-        // //Q1 仕様に矛盾がないかの確認
-        // System.out.println("Hondaで他の車より定員数が多い");
-        // System.out.println(h.capacity > n.capacity && h.capacity > f.capacity);
-        // System.out.println("Nissanで他の車より価格が安い");
-        // System.out.println(n.price < h.price && n.price < f.price);
-        // System.out.println("Ferrariで他の車より価格が高い");
-        // System.out.println(f.price > n.price && f.price > h.price);
-        // System.out.println("Ferrariで他の車より定員数が少ない");
-        // System.out.println(n.capacity > f.capacity && h.capacity > f.capacity);
-        // System.out.println("Ferrariで他の車より加速が早い");
-        // System.out.println(f.acceleration > n.acceleration && f.acceleration > h.acceleration);
-        // h.stepAccel();
-        // n.stepAccel();
-        // f.stepAccel();
-        // h.stepBrake();
-        // n.stepBrake();
-        // f.stepBrake();
+        h.ridePerson();
+        h.ridePerson();
+        race.start(10000);
+
+
         //----------------------------------------------------------------------------------------
     
         //Q2 フェラーリクラスのリフトアップ・リフトダウンメソッドの確認
         // System.out.println("リフトアップする前の加速値：" + f.acceleration);
         // System.out.println(f.lift);
-        // System.out.println("リフトアップする前の車高の値：" + f.height);
+        // System.out.println("リフトaアップする前の車高の値：" + f.height);
         // f.liftUp();
         // System.out.println("リフトアップした後の加速値：" + f.acceleration);
         // System.out.println(f.lift);
@@ -69,27 +58,32 @@ public class Main {
         // System.out.println(calc.avgPrice);
 
         //Q4 ridePersonメソッド(Ferrariクラスでの確認)
-        System.out.println("人をひとりも乗せていない場合の乗客人数と加速値");
-        System.out.println(f.peopleNum);
-        System.out.println(f.acceleration);
-        f.ridePerson();
-        System.out.println("人を１人乗せた場合と2人乗せた場合の乗客人数と加速値");
-        System.out.println(f.peopleNum);
-        System.out.println(f.acceleration);
-        f.ridePerson();
-        System.out.println(f.peopleNum);
-        System.out.println(f.acceleration);
-        System.out.println("乗客人数が定員数を超えた後の乗客数と加速値");
-        f.ridePerson();
-        System.out.println(f.peopleNum);
-        System.out.println(f.acceleration);
-        f.ridePerson();
-        System.out.println(f.peopleNum);
-        System .out.println(f.acceleration);
-        //Q4　Nissanクラスの生産時欠陥の実装を確認
-        System.out.println("------------------------------------------------");
-        System.out.println("Nissanの加速値");
-        System.out.println(n.acceleration);
+        // System.out.println("人をひとりも乗せていない場合の乗客人数と加速値");
+        // System.out.println(f.peopleNum);
+        // System.out.println(f.acceleration);
+        // f.ridePerson();
+        // System.out.println("人を１人乗せた場合と2人乗せた場合の乗客人数と加速値");
+        // System.out.println(f.peopleNum);
+        // System.out.println(f.acceleration);
+        // f.ridePerson();
+        // System.out.println(f.peopleNum);
+        // System.out.println(f.acceleration);
+        // System.out.println("乗客人数が定員数を超えた後の乗客数と加速値");
+        // f.ridePerson();
+        // System.out.println(f.peopleNum);
+        // System.out.println(f.acceleration);
+        // f.ridePerson();
+        // System.out.println(f.peopleNum);
+        // System .out.println(f.acceleration);
+        // //Q4　Nissanクラスの生産時欠陥の実装を確認
+        // System.out.println("------------------------------------------------");
+        // System.out.println("Nissanの加速値");
+        // System.out.println(n.acceleration);
+
+        //Q6----------------------------------------------------------------------------------------------------------
+        // Toyota t = new Toyota(4000000);
+        // System.out.println("Toyotaの価格："+ t.getPrice());
+        // System.out.println("Toyotaの加速:" + t.getAcceleration());
         
     }
 }
