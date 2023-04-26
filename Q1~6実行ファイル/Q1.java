@@ -2,12 +2,14 @@
 public class Q1 {
  
     public void main(String[] args) {
-        // //Q1 仕様に矛盾がないかの確認
+    }
+    
+    public void q1() {
+        //Q1 仕様に矛盾がないかの確認
         //各自動車のインスタンス化
-        Honda h = new Honda();
-        Nissan n = new Nissan();
-        Ferrari f = new Ferrari();
-
+        // Honda h = new Honda();
+        // Nissan n = new Nissan();
+        // Ferrari f = new Ferrari();
         // System.out.println("Hondaで他の車より定員数が多い");
         // System.out.println(h.capacity > n.capacity && h.capacity > f.capacity);
         // System.out.println("Nissanで他の車より価格が安い");

@@ -1,59 +1,40 @@
+import java.util.Random;
+
 public class Ferrari extends Car {
+    Random rand = new Random();
     private int capacity = 2;
     private int price = 10000000;
     private double acceleration = 8.0;
-    private int peopleNum = 0;
-    private double speed;
-    private double maxSpeed = 160*1000/(60*60);
-    private double sumDistance;
-    private double vO= 0;
-    private double distance;
+
     //Q2 車高をリフトアップしているかどうかの真偽
     private boolean lift = false;
     //Q2 車高のデフォルトの値
-    private int height = 0;
-    
+    private int height;
 
-    public int getPrice() {
-        return this.price;
+    public Ferrari(){
+        //Hondaの値段が8百万~1000万を想定
+        this.price = rand.nextInt(2000000)+8000000;
     }
-    public double getDistance() {
-        return this.distance;
-    }
-    public double getAcceleration(){
+    public double getAcceleration() {
         return this.acceleration;
     }
-    public double getMaxSpeed() {
-        return this.maxSpeed;
+    //Q2
+    public boolean getLift() {
+        return this.lift;
+    }
+    public int getHeight(){
+        return this.height;
     }
 
-    public void stepAccel(int sec){
-        this.distance = this.acceleration*this.maxSpeed*sec;
+    public double stepAccel(int sec){
+        double distance =  this.acceleration * (sec*sec) /2;
+        return distance;
     }
-    // public void stepAccel(int sec){
-    //     System.out.println(sec + "秒アクセルを踏みました。");
-    //     double distance;
-    //     double maxSec = this.maxSpeed/this.acceleration;
-    //     while(this.speed < this.maxSpeed) {
-    //         this.speed = this.acceleration*sec + this.vO;
-    //         distance = 1/2 * this.acceleration*(sec*sec) + this.vO*sec;
-    //         this.sumDistance += distance;
-    //         this.vO = this.speed;
-    //         if(this.speed > this.maxSpeed){
-    //             this.speed = this.maxSpeed;
-    //             distance = this.speed * sec;
-    //             this.sumDistance += distance;
-    //         }
-    //     }
-    // }
-    // public  void stepBrake(int sec) {
-    //     double distance;
-    //     System.out.println(sec + "秒ブレーキを踏みました。");
-    //     this.speed = this.acceleration*(-1)*sec + vO*sec;
-    //     distance = 1/2 * this.acceleration*(-1)*(sec*sec) + vO*sec;
-    //     this.vO = this.speed;
-    //     this.sumDistance += distance;
-    // }
+    public double stepBrake(int sec){
+        double distance =  this.acceleration * (sec*sec) /2/2;
+        return distance;
+    }
+    
 
     //Q2　リフトアップメソッド→リフトアップすると20%加速が低下する。リフトアップしている状態から呼び出しても何も起こらない。
     public void liftUp() {
@@ -64,10 +45,9 @@ public class Ferrari extends Car {
             this.height = 40;
         }
     }
-    //
     public void liftDown() {
         if(this.lift == true) {
-            this.acceleration = 8;
+            this.acceleration /= (1 - 0.2);
             this.lift = false; 
             this.height = 0;
         }

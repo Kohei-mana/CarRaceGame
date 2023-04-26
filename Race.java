@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,89 +13,51 @@ public class Race {
     List<String> goalList = new ArrayList<>();
 
 
+    //途中経過を出力するメソッド
+    public void progress(int sec) {
+        System.out.println(sec + "秒経過地点: " + f.stepAccel(sec) + "m");
+    }
+    public int makeBrakeCnt(){
+        int brakeCnt = rand.nextInt(5);
+        return brakeCnt;
+    }
+    public int makeBrakeSec(){
+        int brakeSec = rand.nextInt(10);
+        return brakeSec;
+    }
 
-
-
-    public void start(int distance) {
+    public void race(int distance) {
         
         System.out.println("ゴールは" + distance);
 
-        //途中経過の出力
-
-        double hondaTime = distance/h.getMaxSpeed()/h.getAcceleration();
-        double nissanTime = distance/n.getMaxSpeed()/n.getAcceleration();
-        double ferrariTime = distance/f.getMaxSpeed()/f.getAcceleration();
-        double toyotaTime = distance/t.getMaxSpeed()/t.getAcceleration();
-
-        for(int s=60; s<1000; s=s+60){
+        //ホンダ
+        for(int s=0; s<100; s++){
             h.stepAccel(s);
-            int brakeSec = rand.nextInt(5);
-            h.stepBrake(brakeSec);
-            System.out.println("ホンダの" + s + "秒後の距離");
-            System.out.println(h.getDistance());
-            if(distance<h.getDistance()){
+            if(s%10==0) {
+                progress(s);
+            }
+            if(distance<=h.stepAccel(s)) {
                 System.out.println("ゴールしました！");
-                System.out.println("タイムは" + hondaTime + "秒です");
+                System.out.println("タイムは" + s + "秒です！"); 
                 break;
             }
         }
-
-        //ニッサンの走り
-        for(int s=60; s<1000; s=s+60){
-            n.stepAccel(s);
-            int brakeSec = rand.nextInt(5);
-            n.stepBrake(brakeSec);
-            System.out.println("ニッサンの" + s + "秒後の距離");
-            System.out.println(n.getDistance());
-            if(distance<n.getDistance()){
-                System.out.println("ゴールしました！");
-                System.out.println("タイムは" + nissanTime + "秒です");
-                break;
-            }
-        }
-
-        for(int s=60; s<1000; s=s+60){
-            f.stepAccel(s);
-            int brakeSec = rand.nextInt(5);
-            f.stepBrake(brakeSec);
-            System.out.println("フェラーリの" + s + "秒後の距離");
-            System.out.println(f.getDistance());
-            if(distance<f.getDistance()){
-                System.out.println("ゴールしました！");
-                System.out.println("タイムは" + ferrariTime + "秒です");
-                break;
-            }
-        }
-
-        for(int s=30; s<1000; s=s+60){
-            t.stepAccel(s);
-            int brakeSec = rand.nextInt(5);
-            t.stepBrake(brakeSec);
-            System.out.println("トヨタの" + s + "秒後の距離");
-            System.out.println(t.getDistance());
-            if(distance<t.getDistance()){
-                System.out.println("ゴールしました！");
-                System.out.println("タイムは" + toyotaTime + "秒です");
-                break;
-            }
-        }
-
-        ///順位決定
-        double[] cars = {hondaTime, nissanTime, ferrariTime, toyotaTime};
-        Arrays.sort(cars);
-        System.out.println(Arrays.toString(cars));
-        System.out.println("ホンダのタイム:" + hondaTime);
-        System.out.println("ニッサンのタイム:" + nissanTime);
-        System.out.println("フェラーリのタイム:" + ferrariTime);
-        System.out.println("トヨタのタイム:" + toyotaTime);
-
-        for(int i=0;i<cars.length;i++){
-            System.out.println(i+1 + "位：" + cars[i]);
-        }
-
         
+        //フェラーリ
+        for(int s=0; s<100; s++){
+            f.stepAccel(s);
+            
+            if(s%10==0) {
+                progress(s);
+            }
+            if(distance<=f.stepAccel(s)) {
+                System.out.println("ゴールしました！");
+                System.out.println("タイムは" + s + "秒です！"); 
+                int fTime = s;
+                break;
+            }
+        }    
     }
         
     
 }
-// && n.distance<distance && f.distance<distance && t.distance<distance
