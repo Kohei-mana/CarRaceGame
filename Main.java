@@ -1,15 +1,23 @@
 public class Main {
     public static void main(String[] args) {
         
-        Car[] cars = new Car[3];
-        cars[0] = new Honda();
-        cars[1] = new Nissan();
-        cars[2] = new Ferrari();
+        Ferrari f = new Ferrari();
 
-        for (Car car : cars) {
-            System.out.println(car.name + "の定員数は" + car.capacity + "で、価格は" + car.price + "円です。");
-            System.out.println("加速度は" + car.acceleration + "です。");
-        }
+        //車高が上がってない状態でliftDownできないことを確認
+        f.liftDown();
+        System.out.println("車高上昇前");
+        System.out.println(f.name + "の車高は" + f.frontHeight + "mm");
+        System.out.println(f.name + "の加速は" + f.acceleration);
+        f.liftUp();
+        System.out.println("車高上昇後");
+        System.out.println(f.name + "の車高は" + f.frontHeight + "mm");
+        System.out.println(f.name + "の加速は" + f.acceleration);
+        //車高が上がっている状態でliftUpできないことを確認する
+        f.liftUp();
+        f.liftDown();
+        System.out.println("車高下降後");
+        System.out.println(f.name + "の車高は" + f.frontHeight + "mm");
+        System.out.println(f.name + "の加速は" + f.acceleration);
         
     }
 }
