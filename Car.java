@@ -1,10 +1,28 @@
-public interface Car {
-    //すべての車に備わっているデフォルトの定員数、価格、加速、速度
-    int capacity = 4;
-    int price = 2000000;
-    int acceleration = 4;
+import java.util.Random;
 
-    //アクセル、ブレーキメソッド
-    void stepAccel();
-    void stepBrake();
+public class Car {
+    //すべての車に備わっているデフォルトの定員数、価格、加速、速度
+    String name;
+    int capacity;
+    int price;
+    double acceleration;
+
+    Random rand = new Random();
+
+    Car(String name, int capacity, int price, double acceleration) {
+        this.name = name;
+        this.capacity = capacity;
+        this.price = price - rand.nextInt(500000) + rand.nextInt(500000);
+        this.acceleration = acceleration;
+    }
+
+
+    void stepAccel(){
+        System.out.println("アクセルを踏みました");
+    }
+
+    void stepBrake() {
+        System.out.println("ブレーキを踏みました");
+    }
 }
+

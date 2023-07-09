@@ -1,36 +1,30 @@
-public class Ferrari implements Car {
-    int capacity = 2;
-    int price = 12000000;
-    double acceleration = 8;
-    int height;
-    
+class Ferrari extends Car {
+    double frontHeight;
+    boolean isLifted;
 
-    public void stepAccel(){
-        System.out.println("アクセルを踏みました。");
-    }
-    public void stepBrake(){
-        System.out.println("ブレーキを踏みました。");
+    Ferrari() {
+        super("Ferrari", 2, 10000000, 8.0);
+        frontHeight = 0.0;
+        isLifted = false;
     }
 
-    boolean lift = false;
-
-    //リフトアップメソッド→リフトアップすると20%加速が低下する。リフトアップしている状態から呼び出しても何も起こらない。
-    public void liftUp() {
-        if(this.lift == false) {
-            //加速20%低下
-            this.acceleration *= (1 - 0.2);
-            this.lift = true;
-            this.height = 40;
+    void liftUp() {
+        if (!isLifted) {
+            frontHeight += 40;
+            acceleration *= 0.8;
+            isLifted = true;
+        } else {
+            System.out.println("既にリフトアップしています。");
         }
     }
 
-    //
-    public void liftDown() {
-        if(this.lift == true) {
-            this.acceleration = 8;
-            this.lift = false; 
-            this.height = 0;
+    void liftDown() {
+        if (isLifted) {
+            frontHeight -= 40;
+            acceleration /= 0.8;
+            isLifted = false;
+        } else {
+            System.out.println("リフトアップしていないため、リフトダウンできません。");
         }
     }
-
 }

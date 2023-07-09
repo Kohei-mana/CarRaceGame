@@ -1,12 +1,5 @@
-public class Honda implements Car {
-    int capacity = 6;
-    int price = 2000000;
-    int acceleration = 4;
-
-    public void stepAccel(){
-        System.out.println("アクセルを踏みました。");
+class Honda extends Car {
+    Honda() {
+        super("Honda", 6, 6000000, 4.0);
     }
-    public void stepBrake(){
-        System.out.println("ブレーキを踏みました。");
-    }
-}
+} 
