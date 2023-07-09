@@ -16,7 +16,6 @@ public class Car {
         this.acceleration = acceleration;
     }
 
-
     void stepAccel(){
         System.out.println("アクセルを踏みました");
     }
@@ -24,5 +23,6 @@ public class Car {
     void stepBrake() {
         System.out.println("ブレーキを踏みました");
     }
+
 }
 
